@@ -4,15 +4,17 @@ require "geolocater/version"
 
 Gem::Specification.new do |s|
   s.name        = "geolocater"
+  s.license     = 'MIT'
   s.version     = Geolocater::VERSION
-  s.authors     = ["Daniel Barrett"]
+  s.authors     = ["Dan Barrett"]
   s.email       = ["dbarrett83@gmail.com"]
   s.homepage    = "http://www.about.me/thoughtpunch"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = "Yet Another IP Geolocation Gem"
+  s.description = "geolocater is a simple ruby wrapper for the freegeoip.net API"
 
   s.rubyforge_project = "geolocater"
-
+  
+  s.required_ruby_version = '>= 1.9.0'
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
@@ -20,6 +22,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "guard"
-  s.add_development_dependency "vcr"
-  s.add_development_dependency "faraday"
+  s.add_dependency "faraday"
+  s.add_dependency "json"
 end

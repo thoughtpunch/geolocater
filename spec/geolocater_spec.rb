@@ -3,10 +3,6 @@ require 'geolocater'
 
 describe Geolocater do
 
-  before :each do
-    @geolocater = Geolocater.new
-  end
-
   describe "#ip_lookup" do    
     it "throws an ArgumentError error if no parameters passed" do
       expect {Geolocater.ip_lookup}.to raise_error(ArgumentError)
@@ -23,7 +19,9 @@ describe Geolocater do
     it "should not accept localhost/loopback address" do
       expect {Geolocater.ip_lookup("127.0.0.1")}.to raise_error(RuntimeError,"Can't lookup localhost address. Please use an external IP address!")
     end
-
+  end
+  
+  describe "#geolocate_ip" do
     it "successfully makes a HTTP request" do
       expect{Geolocater.ip_lookup("231.4.8.6").success?}.to be_true
     end
@@ -39,7 +37,8 @@ describe Geolocater do
     it "has a value for city" do
       @result = Geolocater.ip_lookup("123.45.6.28")["city"].should_not be_empty
       expect {Geolocater.ip_lookup("240.0.0.0")}.to raise_error(RuntimeError,"Incomplete record. Please try another address")
-    end      
-  end
+    end
+    
+  end      
 end
 

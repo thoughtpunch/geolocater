@@ -1,8 +1,8 @@
-require "geolocater/version"
+require "geolocator/version"
 require 'faraday'
 require 'json'
 
-class Geolocater
+class Geolocator
 
   class << self
 

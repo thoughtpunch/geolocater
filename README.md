@@ -1,15 +1,15 @@
-Geolocater
+Geolocator
 ==========
 Yet Another IP Geolocation Gem for Fun and Profit!
 --------------------------------------------------
 
 ### Installation
-`gem install geolocater`
+`gem install geolocator`
 
 ### Usage
-Pass any properly formatted IPv4 address string to a new instance of Geolocater like so.
+Pass any properly formatted IPv4 address string to a new instance of Geolocator like so.
 
-`Geolocater.ip_lookup(IP_ADDRESS_STRING)`
+`Geolocator.ip_lookup(IP_ADDRESS_STRING)`
 
 and get back a JSON Hash of the results
 
@@ -22,7 +22,7 @@ and get back a JSON Hash of the results
 * This library uses the free (and very good) [freegeoip.net](http://freegeoip.net) REST API.
 * Results are returned in JSON format. For friendlier Ruby object-like results (and better nil handling), pipe the result hash into a new [Hashie::Mash](https://github.com/intridea/hashie) like so:
 
-`Hashie::Mash.new(Geolocater.ip_lookup(IP_ADDRESS_STRING))`
+`Hashie::Mash.new(Geolocator.ip_lookup(IP_ADDRESS_STRING))`
 
 ### Future Features
 * Add multiple geolocation services in the event the freegeoip service goes down

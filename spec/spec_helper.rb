@@ -1,3 +1,3 @@
 require 'rubygems'
-require 'geolocater'
+require 'geolocator'
 

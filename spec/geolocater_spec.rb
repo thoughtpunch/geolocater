@@ -21,7 +21,7 @@ describe Geolocater do
     end
     
     it "should not accept localhost/loopback address" do
-      expect {Geolocater.ip_lookup("127.0.0.1")}.to raise_error(RuntimeError,"Can't lookup localhost addresse. Please use an external IP address!")
+      expect {Geolocater.ip_lookup("127.0.0.1")}.to raise_error(RuntimeError,"Can't lookup localhost address. Please use an external IP address!")
     end
 
     it "successfully makes a HTTP request" do

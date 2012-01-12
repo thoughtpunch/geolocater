@@ -18,11 +18,19 @@ class Geolocator
       raise "Can't lookup localhost address. Please use an external IP address!"
     #If valid, pass the ip address to the 'geolocate' method
     else
-      geolocate_ip
+      FreeGeoIp.new(ip_address).geolocate_ip
     end
   end
+end
 
-  private
+class Geolocator::FreeGeoIp
+
+  attr_accessor :ip_address
+
+  def initialize(ip_address)
+    @ip_address = ip_address
+  end
+
   def geolocate_ip
     #the request URI
     uri = "http://freegeoip.net/json/#{ip_address}"

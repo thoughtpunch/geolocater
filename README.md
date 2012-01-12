@@ -9,7 +9,7 @@ Yet Another IP Geolocation Gem for Fun and Profit!
 ### Usage
 Pass any properly formatted IPv4 address string to a new instance of Geolocater like so.
 
-`Geolocater.ip_lookup(IP_ADDRESS_STRING)`
+`Geolocater.geolocate_ip(IP_ADDRESS_STRING)`
 
 and get back a JSON Hash of the results
 
@@ -34,3 +34,4 @@ and get back a JSON Hash of the results
 ### Thanks!
 * <dbarrett83@gmail.com>
 * [Twitter](http://www.twitter.com/thoughtpunch)
+

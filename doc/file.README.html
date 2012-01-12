@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>Geolocater</h1>
+
+<h2>Yet Another IP Geolocation Gem for Fun and Profit!</h2>
+
+<h3>Installation</h3>
+
+<p><code>gem install geolocater</code></p>
+
+<h3>Usage</h3>
+
+<p>Pass any properly formatted IPv4 address string to a new instance of Geolocater like so.</p>
+
+<p><code>Geolocater.geolocate_ip(IP_ADDRESS_STRING)</code></p>
+
+<p>and get back a JSON Hash of the results</p>
+
+<p><code>=&gt; {&quot;city&quot;=&gt;&quot;CITY&quot;, &quot;region_code&quot;=&gt;&quot;ST&quot;, &quot;region_name&quot;=&gt;&quot;Region Name&quot;, 
+     &quot;metrocode&quot;=&gt;&quot;999&quot;, &quot;zipcode&quot;=&gt;&quot;98765&quot;, &quot;longitude&quot;=&gt;&quot;-92.23&quot;, 
+     &quot;country_name&quot;=&gt;&quot;United States&quot;, &quot;country_code&quot;=&gt;&quot;US&quot;, 
+     &quot;ip&quot;=&gt;&quot;IP_ADDRESS&quot;, &quot;latitude&quot;=&gt;&quot;27.54&quot;}</code></p>
+
+<h3>Details</h3>
+
+<ul>
+<li>This library uses the free (and very good) <a href="http://freegeoip.net">freegeoip.net</a> REST API.</li>
+<li>Results are returned in JSON format. For friendlier Ruby object-like results (and better nil handling), pipe the result hash into a new <a href="https://github.com/intridea/hashie">Hashie::Mash</a> like so:</li>
+</ul>
+
+<p><code>Hashie::Mash.new(Geolocater.ip_lookup(IP_ADDRESS_STRING))</code></p>
+
+<h3>Future Features</h3>
+
+<ul>
+<li>Add multiple geolocation services in the event the freegeoip service goes down</li>
+</ul>
+
+<h3>How You Can Help</h3>
+
+<ul>
+<li>Suggest additional tests/refactoring</li>
+<li>Submit a pull request</li>
+</ul>
+
+<h3>Thanks!</h3>
+
+<ul>
+<li><a href="mailto:dbarrett83@gmail.com">dbarrett83@gmail.com</a></li>
+<li><a href="http://www.twitter.com/thoughtpunch">Twitter</a></li>
+</ul>
+</div></div>
+    
+    <div id="footer">
+  Generated on Thu Jan 12 14:07:32 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.4 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

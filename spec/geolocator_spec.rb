@@ -5,38 +5,38 @@ describe Geolocator do
 
   describe "#ip_lookup" do    
     it "throws an ArgumentError error if no parameters passed" do
-      expect {Geolocator.ip_lookup}.to raise_error(ArgumentError)
+      expect {Geolocator.new.ip_lookup}.to raise_error(ArgumentError)
     end
 
     it "throws an ArgumentError error if more than one parameter passed" do
-      expect {Geolocator.ip_lookup("sdfsdf","sdfsadf")}.to raise_error(ArgumentError)
+      expect {Geolocator.new("sdfsdf","sdfsadf").ip_lookup}.to raise_error(ArgumentError)
     end
     
     it "only accepts input that passes a basic IP regex" do
-      expect {Geolocator.ip_lookup("sdfsadfsdf")}.to raise_error(RuntimeError,"Not a valid IPv4 address")
+      expect {Geolocator.new("sdfsadfsdf").ip_lookup}.to raise_error(RuntimeError,"Not a valid IPv4 address")
     end
     
     it "should not accept localhost/loopback address" do
-      expect {Geolocator.ip_lookup("127.0.0.1")}.to raise_error(RuntimeError,"Can't lookup localhost address. Please use an external IP address!")
+      expect {Geolocator.new("127.0.0.1").ip_lookup}.to raise_error(RuntimeError,"Can't lookup localhost address. Please use an external IP address!")
     end
   end
   
   describe "#geolocate_ip" do
     it "successfully makes a HTTP request" do
-      expect{Geolocator.ip_lookup("231.4.8.6").success?}.to be_true
+      expect{Geolocator.new("231.4.8.6").ip_lookup.success?}.to be_true
     end
     
     it "throws an error for HTTP statuses other than 200" do
-      expect {Geolocator.ip_lookup("0.0.0.0")}.to raise_error(RuntimeError,"IP address not found")
+      expect {Geolocator.new("0.0.0.0").ip_lookup}.to raise_error(RuntimeError,"IP address not found")
     end
     
     it "parses the HTTP body with JSON" do
-      Geolocator.ip_lookup("123.45.6.28").should be_an_instance_of Hash
+      Geolocator.new("123.45.6.28").ip_lookup.should be_an_instance_of Hash
     end
     
     it "has a value for city" do
-      @result = Geolocator.ip_lookup("123.45.6.28")["city"].should_not be_empty
-      expect {Geolocator.ip_lookup("240.0.0.0")}.to raise_error(RuntimeError,"Incomplete record. Please try another address")
+      @result = Geolocator.new("123.45.6.28").ip_lookup["city"].should_not be_empty
+      expect {Geolocator.new("240.0.0.0").ip_lookup}.to raise_error(RuntimeError,"Incomplete record. Please try another address")
     end
     
   end      

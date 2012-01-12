@@ -3,3 +3,4 @@
 Guardfile
 Gemfile.lock
 pkg/*
+*.swp

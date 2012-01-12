@@ -20,26 +20,6 @@ describe Geolocator do
       expect {Geolocator.new("127.0.0.1").ip_lookup}.to raise_error(RuntimeError,"Can't lookup localhost address. Please use an external IP address!")
     end
   end
-  
-  describe "#geolocate_ip" do
-    it "successfully makes a HTTP request" do
-      expect{Geolocator.new("231.4.8.6").ip_lookup.success?}.to be_true
-    end
-    
-    it "throws an error for HTTP statuses other than 200" do
-      expect {Geolocator.new("0.0.0.0").ip_lookup}.to raise_error(RuntimeError,"IP address not found")
-    end
-    
-    it "parses the HTTP body with JSON" do
-      Geolocator.new("123.45.6.28").ip_lookup.should be_an_instance_of Hash
-    end
-    
-    it "has a value for city" do
-      @result = Geolocator.new("123.45.6.28").ip_lookup["city"].should_not be_empty
-      expect {Geolocator.new("240.0.0.0").ip_lookup}.to raise_error(RuntimeError,"Incomplete record. Please try another address")
-    end
-    
-  end      
 end
 
 describe Geolocator::FreeGeoIp do  

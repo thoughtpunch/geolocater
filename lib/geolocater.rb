@@ -25,11 +25,9 @@ class Geolocater
     end
   end  
    
-  class << self
-    def geolocate_ip(ip_address)
-      geolocator = Geolocater.new(ip_address)
-      geolocator.geolocate_ip
-    end
+  def self.geolocate_ip(ip_address)
+    geolocator = Geolocater.new(ip_address)
+    geolocator.geolocate_ip
   end
   
 end
